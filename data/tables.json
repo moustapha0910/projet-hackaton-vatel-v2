@@ -1,1 +1,17 @@
-[]
+﻿{
+    "03":  {
+               "label":  "Salon VIP",
+               "seats":  4,
+               "on":  1
+           },
+    "01":  {
+               "label":  "Terrasse",
+               "seats":  4,
+               "on":  1
+           },
+    "02":  {
+               "label":  "Salle",
+               "seats":  4,
+               "on":  1
+           }
+}

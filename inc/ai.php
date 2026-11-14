@@ -2,8 +2,10 @@
 require_once __DIR__ . '/../config.php';
 function ai_provider() {
   $p = defined('AI_PROVIDER') ? AI_PROVIDER : 'auto';
+  if ($p === 'groq') return GROQ_KEY !== '' ? 'groq' : '';
   if ($p === 'gemini') return GEMINI_KEY !== '' ? 'gemini' : '';
   if ($p === 'anthropic') return ANTHROPIC_KEY !== '' ? 'anthropic' : '';
+  if (GROQ_KEY !== '') return 'groq';
   if (GEMINI_KEY !== '') return 'gemini';
   return ANTHROPIC_KEY !== '' ? 'anthropic' : '';
 }
@@ -18,7 +20,11 @@ function gemini_models(&$err = null) {
   return $out;
 }
 function ai_call($prov, $sys, $msgs, &$err = null, $timeout = 15) {
-  if ($prov === 'gemini') {
+  if ($prov === 'groq') {
+    $url = 'https://api.groq.com/openai/v1/chat/completions';
+    $body = ['model' => GROQ_MODEL, 'messages' => array_merge([['role' => 'system', 'content' => $sys]], $msgs), 'max_tokens' => 600, 'temperature' => 0.6];
+    $headers = ['content-type: application/json', 'authorization: Bearer ' . GROQ_KEY];
+  } elseif ($prov === 'gemini') {
     $url = 'https://generativelanguage.googleapis.com/v1beta/models/' . rawurlencode(gemini_model()) . ':generateContent';
     $contents = array_map(fn($m) => ['role' => $m['role'] === 'assistant' ? 'model' : 'user', 'parts' => [['text' => $m['content']]]], $msgs);
     $body = ['systemInstruction' => ['parts' => [['text' => $sys]]], 'contents' => $contents,
@@ -34,7 +40,9 @@ function ai_call($prov, $sys, $msgs, &$err = null, $timeout = 15) {
     CURLOPT_TIMEOUT => $timeout, CURLOPT_CONNECTTIMEOUT => 8, CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4, CURLOPT_SSL_VERIFYPEER => VERIFY_SSL, CURLOPT_HTTPHEADER => $headers]);
   $raw = curl_exec($ch); $code = curl_getinfo($ch, CURLINFO_HTTP_CODE); $ce = curl_error($ch); curl_close($ch);
   $r = json_decode((string)$raw, true);
-  $txt = $prov === 'gemini' ? (string)($r['candidates'][0]['content']['parts'][0]['text'] ?? '') : (string)($r['content'][0]['text'] ?? '');
+  $txt = $prov === 'groq' ? (string)($r['choices'][0]['message']['content'] ?? '')
+       : ($prov === 'gemini' ? (string)($r['candidates'][0]['content']['parts'][0]['text'] ?? '')
+       : (string)($r['content'][0]['text'] ?? ''));
   if ($txt === '') $err = 'HTTP ' . $code . ' ' . ($ce ?: mb_substr(json_encode($r['error'] ?? $raw, JSON_UNESCAPED_UNICODE), 0, 300));
   return $txt;
 }
