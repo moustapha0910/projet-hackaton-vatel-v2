@@ -1,0 +1,49 @@
+SaveurIA - Restaurant (version PHP pour XAMPP)
+
+1. Copiez le dossier "saveuria" dans C:\xampp\htdocs\
+2. Lancez Apache depuis le panneau XAMPP (MySQL n'est pas nécessaire).
+3. Ouvrez http://localhost/saveuria/
+
+Pages : index.php (accueil), menu.php, panier.php, commande.php?id=..., cuisine.php (commandes), carte.php, ventes.php
+Données : data/state.json (créé automatiquement). Pour repartir de zéro, supprimez ce fichier
+ou ouvrez http://localhost/saveuria/api.php?a=reset
+Démo sur deux appareils : ouvrez http://<IP-de-votre-PC>/saveuria/ sur le téléphone (même Wi-Fi) et la cuisine sur le PC ;
+les écrans se mettent à jour toutes les 3 secondes.
+Photos : remplacez les fichiers du dossier img/ (mêmes noms) pour changer les images.
+
+--- Options ---
+config.php : clé API Anthropic (sommelier IA réel), erreur SSL, code PIN de la cuisine.
+  Le sommelier est un chat : il répond aux questions du client et propose des plats à ajouter au panier. Sans clé, il répond avec un moteur à mots-clés (aucune connexion nécessaire). Le serveur retire toujours les plats contenant un allergène choisi.
+qr.php : page imprimable avec un QR code par table (menu.php?table=N). Ouvrez-la via l'IP du PC, pas localhost.
+
+--- Sommelier IA gratuit (Gemini) ---
+1. Créez une clé gratuite dans Google AI Studio (aistudio.google.com, "Get API key").
+2. Collez-la dans config.php : const GEMINI_KEY = '...';  (AI_PROVIDER reste sur 'auto')
+3. Vérifiez la connexion : http://localhost/saveuria/api.php?a=aitest
+   -> affiche le fournisseur utilisé et, en cas d'échec, la raison (clé invalide, modèle retiré, limite atteinte, certificat SSL...).
+Si l'IA est indisponible, le chat répond automatiquement avec les mots-clés.
+Si vous aviez déjà un config.php, conservez vos réglages et ajoutez seulement les lignes AI_PROVIDER, GEMINI_KEY et GEMINI_MODEL.
+
+--- Dépannage IA ---
+api.php?a=aitest                       : teste la connexion (40 s max) avec le modèle de config.php
+api.php?a=aitest&list=1                : liste les modèles Gemini que votre clé peut utiliser
+api.php?a=aitest&model=NOM_DU_MODELE   : essaie un autre modèle sans modifier config.php
+"Operation timed out ... 0 bytes received" = connexion établie mais aucune réponse : essayez un autre réseau (partage de connexion du téléphone),
+désactivez VPN/proxy/antivirus web, autorisez httpd.exe (Apache) dans le pare-feu Windows.
+
+--- Nouveautés ---
+chat.php     : page du sommelier IA (chat). Le client peut demander des plats, ajouter au panier ("je prends") et valider sa commande ("valide") ; l'envoi en cuisine se fait toujours avec un bouton.
+landing.php  : landing page (Tailwind + Lenis + GSAP/ScrollTrigger, effet 3D au défilement). Nécessite Internet pour charger ces bibliothèques. Pour en faire la page d'entrée, renommez index.php puis landing.php en index.php.
+
+--- Pages ---
+index.php   : landing page = page principale (http://localhost/saveuria/)
+accueil.php : ancienne page d'accueil interne de l'appli (non liée, conservée)
+Le client garde le reçu de sa commande visible sur toutes les pages tant qu'elle n'est pas servie et réglée ; tous ses reçus sont dans Panier > Historique.
+
+media/banner.mp4 : vidéo de la bannière animée (remplaçable par votre propre vidéo MP4, même nom).
+
+--- Administration ---
+admin.php : http://localhost/saveuria/admin.php  (mot de passe par défaut : admin123, à changer dans config.php : ADMIN_PASSWORD)
+  Tableau de bord, Tables & QR (création une par une ou en série, QR par numéro, PNG, impression), Commandes, Avis, Réglages (export CSV, test IA).
+Chaque QR ouvre index.php?table=N : le numéro de table s'affiche sur la landing, le panier et la commande.
+Si vous aviez déjà un config.php, ajoutez-y les lignes ADMIN_PASSWORD et PUBLIC_URL du nouveau fichier.
