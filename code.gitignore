@@ -1,0 +1,22 @@
+# Dépendances Composer (on ne met pas le dossier vendor sur GitHub)
+/vendor/
+composer.phar
+
+# Variables d'environnement (ne jamais partager ses mots de passe)
+.env
+.env.local
+.env.*.local
+
+# Fichiers de configuration IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Cache
+/cache/*
+!/cache/.gitkeep
