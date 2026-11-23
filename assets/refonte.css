@@ -1,0 +1,55 @@
+/* Les Délices du Vatel : typographie, formes et rythme (les dégradés rouges, halos, vidéo et animations restent inchangés) */
+:root{--serif:"Fraunces",Georgia,"Times New Roman",serif}
+body{font-family:"DM Sans","Segoe UI",system-ui,sans-serif;color:#EEF2F6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.big,.hero h1{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1.1}
+.logo{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:0;gap:0}.logo i{font-style:italic;font-weight:500;color:var(--red);margin-left:.28em}
+.eb{letter-spacing:.14em;font-size:12px;font-weight:600}
+.btn{border-radius:8px;font-weight:600}
+input,textarea,select{border-radius:8px}
+.chip,.pill,.tag,.tag2{border-radius:6px}
+.hero h1{font-size:clamp(34px,4.6vw,52px)}
+.hero h1 em{font-style:italic;font-weight:500}
+/* carte des plats : moins de boîtes, plus de typographie */
+.dish.card{background:transparent;border:0;border-radius:0}
+.dish .ph{border-radius:6px}
+.dish .db{padding:14px 2px 4px}
+.dish .r1{align-items:baseline}
+.dish .r1 span:first-child{font-family:var(--serif);font-weight:600;font-size:19px;line-height:1.2}
+.dish .r1 span:last-child{font-size:15px;font-weight:600;color:var(--blue)}
+.dish:hover{border-color:transparent}
+.al{border:0;background:none;padding:0 10px 0 0;color:var(--mut);font-size:12px;font-style:italic}
+.add{border-radius:8px}
+/* panier et historique : lignes séparées par des filets */
+.ln{background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:18px 0;margin-bottom:0}
+.somm{border-radius:10px}
+
+/* parcours visiteur / client */
+.sel:empty{display:none}
+.vnote{border-left:3px solid var(--red);background:rgba(255,255,255,.04);padding:12px 16px;margin:18px 0;border-radius:6px;color:#EEF2F6;font-size:14px}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,12px);background:#fff;color:#0A1A2E;padding:11px 16px;border-radius:8px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:60;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* --- Corrections : miniatures du panier, bouton Commander du sommelier, commande annulée, images moins zoomées --- */
+.lnh{display:flex;align-items:center;gap:14px;min-width:0}
+.th.cth{display:block;width:120px;height:53px;border-radius:8px;flex:none}
+.th.cth.s{width:72px;height:32px;border-radius:6px}
+@media(max-width:480px){.th.cth{width:96px;height:43px}.th.cth.s{width:64px;height:28px}}
+.rc .add.txt{width:auto;height:38px;padding:0 14px;font-size:13px;font-weight:700;white-space:nowrap;border-radius:8px}
+.tag2.sx{background:rgba(255,255,255,.08);color:var(--mut)}
+.cxo .payc,.cxo .stp,.cxo .esti{display:none}
+/* hero : on affiche la photo en entier (format paysage) au lieu de la rogner en carré */
+.vis{aspect-ratio:4/3}
+.dish:hover .ph img{transform:none}
+
+/* Alerte « commande prête » (affichée chez le client, par-dessus toutes les pages) */
+#rdy{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 14px);transform:translateX(-50%);z-index:120;width:min(560px,calc(100vw - 24px));display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:18px;background:linear-gradient(120deg,#c0102a,#7d0e22);color:#fff;box-shadow:0 18px 50px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.18);animation:rdyIn .5s cubic-bezier(.34,1.45,.64,1)}
+#rdy .rdy-i{width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.18);display:grid;place-items:center;flex:none;animation:rdyRing 1.2s ease-in-out 3}
+#rdy .rdy-t{flex:1;min-width:0}
+#rdy .rdy-t b{display:block;font-size:17px}
+#rdy .rdy-t small{display:block;opacity:.85;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#rdy .rdy-b{background:#fff;color:#7d0e22;font-weight:700;border-radius:12px;padding:10px 16px;flex:none}
+#rdy .rdy-x{opacity:.8;padding:6px;flex:none;color:#fff}
+@keyframes rdyIn{from{opacity:0;transform:translate(-50%,-30px)}to{opacity:1;transform:translate(-50%,0)}}
+@keyframes rdyRing{0%,100%{transform:rotate(0)}20%{transform:rotate(-16deg)}40%{transform:rotate(14deg)}60%{transform:rotate(-10deg)}80%{transform:rotate(6deg)}}
+@media (prefers-reduced-motion:reduce){#rdy,#rdy .rdy-i{animation:none}}
+

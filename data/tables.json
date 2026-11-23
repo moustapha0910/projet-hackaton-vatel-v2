@@ -1,17 +1,57 @@
-﻿{
-    "03":  {
-               "label":  "Salon VIP",
-               "seats":  4,
-               "on":  1
-           },
-    "01":  {
-               "label":  "Terrasse",
-               "seats":  4,
-               "on":  1
-           },
-    "02":  {
-               "label":  "Salle",
-               "seats":  4,
-               "on":  1
-           }
+{
+    "01": {
+        "label": "",
+        "seats": 4,
+        "on": 1
+    },
+    "02": {
+        "label": "",
+        "seats": 4,
+        "on": 1
+    },
+    "03": {
+        "label": "",
+        "seats": 4,
+        "on": 1
+    },
+    "04": {
+        "label": "",
+        "seats": 4,
+        "on": 1
+    },
+    "05": {
+        "label": "",
+        "seats": 4,
+        "on": 1
+    },
+    "06": {
+        "label": "",
+        "seats": 4,
+        "on": 1
+    },
+    "07": {
+        "label": "",
+        "seats": 4,
+        "on": 1
+    },
+    "08": {
+        "label": "",
+        "seats": 4,
+        "on": 1
+    },
+    "09": {
+        "label": "",
+        "seats": 4,
+        "on": 1
+    },
+    "10": {
+        "label": "",
+        "seats": 4,
+        "on": 1
+    },
+    "11": {
+        "label": "",
+        "seats": 4,
+        "on": 1
+    }
 }

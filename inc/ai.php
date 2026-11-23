@@ -22,17 +22,17 @@ function gemini_models(&$err = null) {
 function ai_call($prov, $sys, $msgs, &$err = null, $timeout = 15) {
   if ($prov === 'groq') {
     $url = 'https://api.groq.com/openai/v1/chat/completions';
-    $body = ['model' => GROQ_MODEL, 'messages' => array_merge([['role' => 'system', 'content' => $sys]], $msgs), 'max_tokens' => 600, 'temperature' => 0.6];
+    $body = ['model' => GROQ_MODEL, 'messages' => array_merge([['role' => 'system', 'content' => $sys]], $msgs), 'max_tokens' => 2500, 'temperature' => 0.6];
     $headers = ['content-type: application/json', 'authorization: Bearer ' . GROQ_KEY];
   } elseif ($prov === 'gemini') {
     $url = 'https://generativelanguage.googleapis.com/v1beta/models/' . rawurlencode(gemini_model()) . ':generateContent';
     $contents = array_map(fn($m) => ['role' => $m['role'] === 'assistant' ? 'model' : 'user', 'parts' => [['text' => $m['content']]]], $msgs);
     $body = ['systemInstruction' => ['parts' => [['text' => $sys]]], 'contents' => $contents,
-             'generationConfig' => ['maxOutputTokens' => 2000, 'temperature' => 0.6, 'responseMimeType' => 'application/json']];
+             'generationConfig' => ['maxOutputTokens' => 8192, 'temperature' => 0.6, 'responseMimeType' => 'application/json']];
     $headers = ['content-type: application/json', 'x-goog-api-key: ' . GEMINI_KEY];
   } else {
     $url = 'https://api.anthropic.com/v1/messages';
-    $body = ['model' => ANTHROPIC_MODEL, 'max_tokens' => 600, 'system' => $sys, 'messages' => $msgs];
+    $body = ['model' => ANTHROPIC_MODEL, 'max_tokens' => 1500, 'system' => $sys, 'messages' => $msgs];
     $headers = ['content-type: application/json', 'x-api-key: ' . ANTHROPIC_KEY, 'anthropic-version: 2023-06-01'];
   }
   $ch = curl_init($url);

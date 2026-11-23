@@ -1,0 +1,34 @@
+# Dépendances Composer (on ne met pas le dossier vendor sur GitHub)
+/vendor/
+composer.phar
+
+# Variables d'environnement (ne jamais partager ses mots de passe)
+.env
+.env.local
+.env.*.local
+
+# Fichiers de configuration IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Cache
+/cache/*
+!/cache/.gitkeep
+
+# Données de fonctionnement : commandes, noms et téléphones des clients, adresses IP, verrous.
+# Ne JAMAIS les publier sur GitHub (elles sont recréées automatiquement au premier lancement).
+/data/state.json
+/data/attempts.json
+/data/ratelimit.json
+/data/*.lock
+# Clé privée des notifications push et liste des appareils abonnés : ne JAMAIS publier
+/data/vapid.json
+/data/push.json
+# Identité propre à chaque installation (nom du restaurant, réglé dans l'admin)
+/data/brand.json

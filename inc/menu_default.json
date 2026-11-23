@@ -1,0 +1,247 @@
+[
+ {
+  "id": 1,
+  "n": "Salade avocat & crevettes",
+  "c": "Entrées",
+  "p": 4500,
+  "m": 10,
+  "a": [
+   "Fruits de mer"
+  ],
+  "s": 0,
+  "img": "img/1.jpg",
+  "d": "Avocat crémeux, crevettes roses, citron vert et coriandre fraîche.",
+  "t": [
+   "léger",
+   "poisson"
+  ],
+  "o": 1
+ },
+ {
+  "id": 2,
+  "n": "Brochettes de bœuf épicées",
+  "c": "Grillades",
+  "p": 5000,
+  "m": 18,
+  "a": [],
+  "s": 0,
+  "img": "img/2.jpg",
+  "d": "Bœuf mariné au ras-el-hanout, grillé au feu de bois, oignons rouges.",
+  "t": [
+   "épicé",
+   "viande",
+   "partager"
+  ],
+  "o": 1
+ },
+ {
+  "id": 3,
+  "n": "Jus de gingembre",
+  "c": "Boissons",
+  "p": 1500,
+  "m": 3,
+  "a": [],
+  "s": 0,
+  "img": "img/d03.svg",
+  "d": "Gingembre pressé, citron, une pointe de miel.",
+  "t": [
+   "boisson",
+   "léger"
+  ],
+  "o": 1
+ },
+ {
+  "id": 4,
+  "n": "Ananas rôti à la vanille",
+  "c": "Desserts",
+  "p": 3000,
+  "m": 10,
+  "a": [],
+  "s": 0,
+  "img": "img/4.jpg",
+  "d": "Ananas caramélisé au four, gousse de vanille, sorbet coco.",
+  "t": [
+   "sucré",
+   "léger"
+  ],
+  "o": 1
+ },
+ {
+  "id": 5,
+  "n": "Poisson braisé entier",
+  "c": "Grillades",
+  "p": 12000,
+  "m": 30,
+  "a": [
+   "Poisson"
+  ],
+  "s": 1,
+  "img": "img/5.jpg",
+  "d": "Bar entier braisé au feu de bois, relish de tomates fraîches, alloco.",
+  "t": [
+   "poisson",
+   "signature",
+   "partager"
+  ],
+  "o": 1
+ },
+ {
+  "id": 6,
+  "n": "Riz gras à la viande",
+  "c": "Plats",
+  "p": 6500,
+  "m": 20,
+  "a": [],
+  "s": 0,
+  "img": "img/6.jpg",
+  "d": "Riz mijoté à la tomate, viande de bœuf fondante, légumes du marché.",
+  "t": [
+   "viande",
+   "copieux",
+   "partager"
+  ],
+  "o": 1
+ },
+ {
+  "id": 7,
+  "n": "Burger maison",
+  "c": "Plats",
+  "p": 8000,
+  "m": 20,
+  "a": [
+   "Gluten",
+   "Lactose"
+  ],
+  "s": 0,
+  "img": "img/7.jpg",
+  "d": "Pain brioché, bœuf grillé, cheddar affiné, oignons confits, frites maison.",
+  "t": [
+   "viande",
+   "copieux"
+  ],
+  "o": 1
+ },
+ {
+  "id": 8,
+  "n": "Alloco & œuf",
+  "c": "Plats",
+  "p": 3000,
+  "m": 10,
+  "a": [],
+  "s": 0,
+  "img": "img/8.jpg",
+  "d": "Banane plantain dorée, sauce pimentée maison, œuf mollet.",
+  "t": [
+   "épicé",
+   "léger"
+  ],
+  "o": 1
+ },
+ {
+  "id": 9,
+  "n": "Soupe de poisson pimentée",
+  "c": "Entrées",
+  "p": 3500,
+  "m": 15,
+  "a": [
+   "Poisson"
+  ],
+  "s": 0,
+  "img": "img/9.jpg",
+  "d": "Bouillon de poisson frais, tomate, gingembre et piment doux.",
+  "t": [
+   "poisson",
+   "épicé"
+  ],
+  "o": 1
+ },
+ {
+  "id": 10,
+  "n": "Pâtes au pesto & poulet",
+  "c": "Plats",
+  "p": 7000,
+  "m": 20,
+  "a": [
+   "Gluten",
+   "Lactose"
+  ],
+  "s": 0,
+  "img": "img/10.jpg",
+  "d": "Linguine, pesto de basilic frais, éclats de parmesan, poulet grillé.",
+  "t": [
+   "viande",
+   "copieux"
+  ],
+  "o": 1
+ },
+ {
+  "id": 11,
+  "n": "Fondant au chocolat",
+  "c": "Desserts",
+  "p": 3500,
+  "m": 12,
+  "a": [
+   "Gluten",
+   "Lactose"
+  ],
+  "s": 1,
+  "img": "img/11.jpg",
+  "d": "Cœur coulant 70 %, fleur de sel, crème vanillée.",
+  "t": [
+   "sucré",
+   "signature"
+  ],
+  "o": 1
+ },
+ {
+  "id": 12,
+  "n": "Poulet braisé & attiéké",
+  "c": "Grillades",
+  "p": 8500,
+  "m": 25,
+  "a": [],
+  "s": 1,
+  "img": "img/12.jpg",
+  "d": "Poulet charbonné, sauce tomate-oignon maison, attiéké fondant.",
+  "t": [
+   "viande",
+   "signature",
+   "copieux",
+   "partager"
+  ],
+  "o": 1
+ },
+ {
+  "id": 13,
+  "n": "Kedjenou de poulet",
+  "c": "Plats",
+  "p": 7500,
+  "m": 25,
+  "a": [],
+  "s": 0,
+  "img": "img/13.jpg",
+  "d": "Poulet mijoté lentement à l’étouffée, tomate, oignon, piment.",
+  "t": [
+   "viande",
+   "épicé",
+   "copieux"
+  ],
+  "o": 1
+ },
+ {
+  "id": 14,
+  "n": "Bissap maison",
+  "c": "Boissons",
+  "p": 1500,
+  "m": 3,
+  "a": [],
+  "s": 0,
+  "img": "img/d14.svg",
+  "d": "Hibiscus infusé, menthe fraîche, servi très frais.",
+  "t": [
+   "boisson",
+   "léger"
+  ],
+  "o": 1
+ }
+]

@@ -1,0 +1,13 @@
+# Adresses courtes : monsite/admin, monsite/cuisine, monsite/menu ... (sans .php)
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([A-Za-z0-9_-]+)/?$ $1.php [L]
+</IfModule>
+
+# Manifeste de l'application (installation sur l'écran d'accueil, notifications sur iPhone)
+<IfModule mod_mime.c>
+AddType application/manifest+json .webmanifest
+</IfModule>
